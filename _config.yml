@@ -34,7 +34,7 @@ github_repo: "juwaz"
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "" # the subpath of your site, e.g. "/blog".
+baseurl: "/blog" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
@@ -78,7 +78,7 @@ annotations: false
 show_tags: false
 
 # Add your Google Analytics ID here if you have one and want to use it
-#google_analytics: UA-57531313-5
+#google_analytics: 
 
 exclude:
   - docker-compose.yml

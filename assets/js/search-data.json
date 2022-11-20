@@ -1,0 +1,75 @@
+{
+  
+    
+        "post0": {
+            "title": "deep learning for coders review",
+            "content": "ai inside . learning deep learning . Today I’ll be reviewing Jeremy Howard’s deep learning for coders resource project as well as the topic of Artificial Intelligence broadly. . ai curious . Artificial Intelligence has piqued my interest of late as it’s beginning to play a meaningful role in various fields including those most familiar to me, information security and DevOps. As such I took some time to seek out quality resources to get better versed on the subject and stumbled upon Jeremy Howard’s (kaggle co-founder and current AI startup CEO) training courses for getting technical folks quickly up to speed on A.I. . approachable goldilocks diet . I found them to be approachable even for those with zero deep learning experience, well-organized, and with a perfect balance of theory, practice, and real-world applications. With this class Jeremy has managed to foster a diverse and highly engaged open-source community that is singular in nature across various aspects. I only have good things to say about the course and it’s become a goto recommendation to my peers. . the philistine . There is a biblical parable where Jesus Christ extends clemency to those bringing him to the cross saying … “Forgive them, for they know not what they do”, in artificial intelligence I believe “we” as a broader technical community could be seen as “philistines” with respect to bringing about a swathe of A.I. centered changes to society with unexpected and dire consequences. Experts agree with some remarking that we could be “summoning the beast”. At the moment artificial intelligence applications and resources over-index on novelty and value but what happens when eventual misuses of the technology and research causes society to question the source and veracity of text and digital media as well as the criterium used by neural networks that play a key role in the decision making process for various technical applications. I don’t have the answers but continue to seek out balanced critical analysis and in the meantime enjoy the products of the OpenAI research project as well as various this __ blank does not exist applications. .",
+            "url": "/blog/artificial%20intelligence/deep%20learning%20for%20coders/resource%20review/community%20engagement/training/opinion%20piece/2022/11/20/deep-learning-for-coders-review.html",
+            "relUrl": "/artificial%20intelligence/deep%20learning%20for%20coders/resource%20review/community%20engagement/training/opinion%20piece/2022/11/20/deep-learning-for-coders-review.html",
+            "date": " • Nov 20, 2022"
+        }
+        
+    
+  
+    
+        ,"post1": {
+            "title": "black hills information security review",
+            "content": "black hills infosec rocks . time and money meet mouth . This is a quick post reviewing John Strand’s Black Hills information security community resource project. His time is obviously valuable but he is investing it and other resources to further his goals of making the historically expensive and often opaque process of establishing a career in information technology and security more accessible. . pay what you can training, evergreen labs, fun? . Just a few standout points about their offerings are the pay what you can training sessions which provide access to high quality intro and advanced training subjects with fees from 0 dollars for those with a self-identified need or a few hundred dollars for anyone more established. These training sessions are multi-day with practical expert instruction featuring evergreen labs that are constantly updated for value and relevance. Most classes also include an ask me anything session and access to a highly engaged discord channel for during and after support. The team at BHIS has even taken steps to provide alternating schedules that are time zone friendly for those in the EU and MENA. Lastly these sessions were above all fun, which is far from the norm as I can attest to. I thoroughly enjoyed them and will continue to support and recommend black hills offerings. .",
+            "url": "/blog/information%20security/black%20hills%20infosec/resource%20review/community%20engagement/training/2022/10/15/resource-review.html",
+            "relUrl": "/information%20security/black%20hills%20infosec/resource%20review/community%20engagement/training/2022/10/15/resource-review.html",
+            "date": " • Oct 15, 2022"
+        }
+        
+    
+  
+
+  
+  
+
+  
+      ,"page1": {
+          "title": "About Me",
+          "content": ". Hi I’m Joe Uwazurike an I.T. specialist and aspiring devops security engineer. This site is a custom fork of fastpages 1 modeled after a robots.txt file as an homage to my path from digital marketing to systems administration. I’m a curious life-long learner with a growth mindset and a passion for technology. Thanks for stopping by and hope to connect soon. . a blogging platform that natively supports Jupyter notebooks in addition to other formats. &#8617; . |",
+          "url": "/blog/about/",
+          "relUrl": "/about/",
+          "date": ""
+      }
+      
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+      ,"page11": {
+          "title": "",
+          "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
+          "url": "/blog/robots.txt",
+          "relUrl": "/robots.txt",
+          "date": ""
+      }
+      
+  
+
+}

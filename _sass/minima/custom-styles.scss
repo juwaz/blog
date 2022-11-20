@@ -1,0 +1,65 @@
+/*-----------------------------------*/
+/*--- IMPORT STYLES FOR FASTPAGES ---*/
+@import "minima/fastpages-styles";   
+
+
+
+/*-----------------------------------*/
+/*----- ADD YOUR STYLES BELOW -------*/
+
+@import "sass-flexbox/scss/main"; 
+
+// If you want to turn off dark background for syntax highlighting, comment or delete the below line.
+@import "minima/fastpages-dracula-highlight"; 
+
+// resource: https://www.developerdrive.com/how-to-easily-use-google-fonts-with-sass/
+// Google Fonts
+@import url(http://fonts.googleapis.com/css?family=Arvo|Armatic+SC|Knewave|Reenie+Beanie);
+
+/* header */
+.site-title {
+  font-size: 3rem;
+  margin-top: 32px;
+  font-family: "Knewave", Impact, Charcoal, sans-serif;
+}
+
+.site-title a {
+  text-decoration: none;
+}
+
+.site-header {
+  // source: https://stackoverflow.com/a/43362495
+  border-bottom: unset;
+}
+
+.header-line {
+  width: 100%;
+  border-width: 3px;
+  border-color: #000;
+  border-style: solid none none none;
+  margin: 18px 0;
+}
+
+.item-container {
+  // resource: https://stackoverflow.com/a/58041749
+  // align-items: left;
+  // resource: https://stackoverflow.com/a/44633661
+  align-content: center;
+}
+
+.unpad {
+  padding: unset;
+  // margin: 12px 0
+}
+
+.post-list {
+  > li {
+    margin-bottom: unset;
+  }
+}
+
+.robota {
+    margin-top: .05rem !important;
+    font-size: 20px;
+}
+

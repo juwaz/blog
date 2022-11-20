@@ -1,0 +1,19 @@
+<div id="healthy" class="row">
+    <!-- <h2 class="col-xs-4 unpad">Crawl-delay:</h2> -->
+    <!-- <h2 class="col-xs-8 unpad">2459689.23454</h2> -->
+    <h3 class="col-xs-4 unpad">Allow:</h3>
+    <h6 class="col-xs-8 unpad">
+    <!-- <span style="float: right">Left</span> -->
+    <!-- resource: https://stackoverflow.com/a/59650232 -->
+        <a class="post-link" href="{{ post.url | relative_url }}">
+        /{{ post.title | escape }}
+        </a>
+    </h6>
+
+
+</div>
+
+{%- if site.show_description and post.description  -%}
+<p class="post-meta-description">{{ post.description }}</p>
+{%- endif -%}
+<!-- <p class="post-meta">{{ post.date | date: date_format }}</p> -->

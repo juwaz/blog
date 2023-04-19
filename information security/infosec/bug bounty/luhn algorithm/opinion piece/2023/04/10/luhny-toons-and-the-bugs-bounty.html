@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>bug bounties are filled with challenges even after a vulnerability is found | juwaz</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="bug bounties are filled with challenges even after a vulnerability is found" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="revisting my bug bounty experience" />
+<meta property="og:description" content="revisting my bug bounty experience" />
+<meta property="og:site_name" content="juwaz" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2023-04-10T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="bug bounties are filled with challenges even after a vulnerability is found" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2023-04-10T00:00:00-05:00","datePublished":"2023-04-10T00:00:00-05:00","description":"revisting my bug bounty experience","headline":"bug bounties are filled with challenges even after a vulnerability is found","mainEntityOfPage":{"@type":"WebPage","@id":"/blog/information%20security/infosec/bug%20bounty/luhn%20algorithm/opinion%20piece/2023/04/10/luhny-toons-and-the-bugs-bounty.html"},"url":"/blog/information%20security/infosec/bug%20bounty/luhn%20algorithm/opinion%20piece/2023/04/10/luhny-toons-and-the-bugs-bounty.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="/blog/feed.xml" title="juwaz" /><link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+
+    //// add div for styling
+    //// resource: https://www.javascripttutorial.net/javascript-dom/javascript-insertafter/
+    //function insertAfter(newNode, existingNode) {
+    //    existingNode.parentNode.insertBefore(newNode, existingNode.nextSibling);
+   // }
+
+    //let elm = document.querySelectorAll(".site-header")
+
+    //let div = document.createElement('div');
+    //div.classList.add('header-line');
+
+    //elm.forEach(e => insertAfter(div,e));
+    j/});
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">juwaz</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About Me</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">bug bounties are filled with challenges even after a vulnerability is found</h1><p class="page-description">revisting my bug bounty experience</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2023-04-10T00:00:00-05:00" itemprop="datePublished">
+        Apr 10, 2023
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+
+    </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#bring-me-the-head-of-your-authentication-portal">bring me the head of your authentication portal</a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#bug-bounty-primer">bug bounty primer</a></li>
+<li class="toc-entry toc-h2"><a href="#luhns-primer">luhn’s primer</a></li>
+<li class="toc-entry toc-h2"><a href="#the-find">the find</a></li>
+<li class="toc-entry toc-h2"><a href="#antics-ensue">antics ensue</a></li>
+<li class="toc-entry toc-h2"><a href="#thats-all-folks">that’s all folks</a></li>
+<li class="toc-entry toc-h2"><a href="#footnote">footnote</a></li>
+</ul>
+</li>
+</ul><h1 id="bring-me-the-head-of-your-authentication-portal">
+<a class="anchor" href="#bring-me-the-head-of-your-authentication-portal" aria-hidden="true"><span class="octicon octicon-link"></span></a>bring me the head of your authentication portal</h1>
+
+<p><img src="/blog/images/cabeza.jpg" alt="bring me the head of alfredo garcia blu-ray insert" title="bring me the head of alfredo garcia blu-ray insert"></p>
+
+<h2 id="bug-bounty-primer">
+<a class="anchor" href="#bug-bounty-primer" aria-hidden="true"><span class="octicon octicon-link"></span></a>bug bounty primer</h2>
+
+<p>For those unfamiliar with the term, bug bounties are programs that security
+conscious organizations offer for “White Hat” hackers to review their technology
+systems for vulnerabilities and engage in responsible disclosures in exchange
+for compensation and recognition. Historically security researchers complain
+that most companies don’t have a well structured or maintained program and
+seemingly work against the white hat hacker at every turn.</p>
+
+<h2 id="luhns-primer">
+<a class="anchor" href="#luhns-primer" aria-hidden="true"><span class="octicon octicon-link"></span></a>luhn’s primer</h2>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">def</span> <span class="nf">luhn</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+		<span class="n">r</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">)</span> <span class="k">for</span> <span class="n">ch</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">n</span><span class="p">)][::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+		<span class="k">return</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="mi">0</span><span class="p">::</span><span class="mi">2</span><span class="p">])</span> <span class="o">+</span> <span class="nb">sum</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="nb">divmod</span><span class="p">(</span><span class="n">d</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">r</span><span class="p">[</span><span class="mi">1</span><span class="p">::</span><span class="mi">2</span><span class="p">]))</span> <span class="o">%</span> <span class="mi">10</span> <span class="o">==</span> <span class="mi">0</span>
+
+</code></pre></div></div>
+
+<p><a href="https://en.wikipedia.org/wiki/Luhn_algorithm">Hans Peter Luhn’s algorithm</a> also
+known as the MOD 10 is the go to checksum for validating identification numbers
+found most notably in credit card processing <sup id="fnref:1" role="doc-noteref"><a href="#fn:1" class="footnote" rel="footnote">1</a></sup> but also appearing in a range
+of identification numbers from telephony to social security.</p>
+
+<h2 id="the-find">
+<a class="anchor" href="#the-find" aria-hidden="true"><span class="octicon octicon-link"></span></a>the find</h2>
+
+<p>During an online hackathon I discovered that a major billing processor had an
+issue with one of their portals processing the luhn’s credit card number
+validations in a snippet of their <strong>client side code</strong> (readily accessible to
+any end user of the web app). This interaction with the portal could be
+<strong>fuzzed</strong> (substituting random input values until a new or desired output
+returns). This portal lacked rate limitations, robot validations, or malicious
+IP address filtering. This in combination with another hosted portal where
+ordinary users could retrieve the first six and last four of their credit card
+(for convenience purposes) meant that the billing company essentially provided
+the hash and payload of customer credit cards (the nature of luhn’s algorithm)
+as well as an open and unlimited portal to test them.</p>
+
+<h2 id="antics-ensue">
+<a class="anchor" href="#antics-ensue" aria-hidden="true"><span class="octicon octicon-link"></span></a>antics ensue</h2>
+
+<p>After documenting the issue and reaching out to the billing company requesting a
+responsible disclosure/bug bounty path I met with hardships at every turn. First
+I didn’t hear anything for weeks and when I re-engaged them for a follow-up I
+received a curt response that the issue was out of scope for their program which
+targeted exploitation of a specific resource rather than compromising users by
+combining disparate portals. I responded that this out of the box approach to
+extracting sensitive information mirrors how a “black hat” would approach
+attacking their system/users and that their scope should expand accordingly.
+Once again I heard nothing initially but found an offer for company “Swag”
+buried in my email weeks later. I declined as I had no interest in promoting the
+company and intended to pursue other avenues to submit/appeal the bounty
+(sometimes soliciting intervention from an established bug bounty company like
+hackerone can lead to improved outcomes for the white hat). Soon after their
+last contact offering “Swag” I noticed that both the client side Luhn’s
+vulnerability and the convenience portals updated to feature rate limits and
+optical character recognition prompts to deter malicious prompts/inputs.</p>
+
+<h2 id="thats-all-folks">
+<a class="anchor" href="#thats-all-folks" aria-hidden="true"><span class="octicon octicon-link"></span></a>that’s all folks</h2>
+
+<p>To recap the billing company stalled throughout the process, defined scope in a
+way that benefited them and offered pennies for a vulnerability that was
+certainly worth dollars to a black hat or in the wild. From what I can tell this
+behavior encompasses the <strong><em>rule</em></strong> not the <strong><em>exception</em></strong> when it comes to
+most bug bounty programs. In short the incentives between the organization and
+the hacker are not aligned and even in the best run programs the white hats are
+under appreciated. Regardless I have no regrets and found the process of finding
+and attempting to responsibly disclose the bug bounty a fun and rewarding
+experience.</p>
+
+<p><img src="https://media.tenor.com/C8XjQ4wtqO0AAAAC/thats-all-folks-game-over.gif" alt="bugs bunny and daffy duck 8 bit that's all folks" title="bugs bunny and daffy duck 8 bit that's all folks"></p>
+
+<h2 id="footnote">
+<a class="anchor" href="#footnote" aria-hidden="true"><span class="octicon octicon-link"></span></a>footnote</h2>
+
+<div class="footnotes" role="doc-endnotes">
+  <ol>
+    <li id="fn:1" role="doc-endnote">
+      <p>source: https://www.creditcardvalidator.org/articles/luhn-algorithm <a href="#fnref:1" class="reversefootnote" role="doc-backlink">↩</a></p>
+    </li>
+  </ol>
+</div>
+
+  </div><a class="u-url" href="/blog/information%20security/infosec/bug%20bounty/luhn%20algorithm/opinion%20piece/2023/04/10/luhny-toons-and-the-bugs-bounty.html" hidden></a>
+</article>
+
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>growth and resource hacker</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li>
+  <a rel="me" href="https://twitter.com/juwazr" target="_blank" title="twitter">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://github.com/juwaz" target="_blank" title="github">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#github"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a rel="me" href="https://www.linkedin.com/in/joe-uwazurike-43191579" target="_blank" title="linkedin">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#linkedin"></use>
+    </svg>
+  </a>
+</li>
+<li>
+  <a href="/feed.xml" target="_blank" title="rss">
+    <svg class="svg-icon grey">
+      <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+    </svg>
+  </a>
+</li>
+</ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

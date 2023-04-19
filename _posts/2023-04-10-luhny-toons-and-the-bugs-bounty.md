@@ -4,8 +4,7 @@ layout: post
 description: revisting my bug bounty experience
 categories:
   [information security, infosec, bug bounty, luhn algorithm, opinion piece]
-title:
-  bug bounties are filled with challenges even after a vulnerability is found
+title: bug bounty post mortem
 ---
 
 # bring me the head of your authentication portal

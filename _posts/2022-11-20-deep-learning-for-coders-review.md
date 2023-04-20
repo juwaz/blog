@@ -62,4 +62,6 @@ _blank_ does not exist applications.
 
 ## footnote
 
-[^1]: source: https://tinyurl.com/mtv2mwta
+[^1]:
+    source:
+    https://www.bibletools.org/index.cfm/fuseaction/topical.show/RTD/cgg/ID/7403/Philistines.htm

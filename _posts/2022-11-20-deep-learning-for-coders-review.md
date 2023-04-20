@@ -48,7 +48,7 @@ a go to recommendation to my peers.
 There is a biblical parable where Jesus Christ extends clemency to those
 bringing him to the cross saying ... "Forgive them, for they know not what they
 do", in artificial intelligence I believe "we" as a broader technical community
-could be seen as "philistines" [^1 ]with respect to bringing about a swathe of
+could be seen as "philistines" [^1] with respect to bringing about a swathe of
 A.I. centered changes to society with unexpected and dire consequences. Experts
 agree with some remarking that we could be "summoning the beast". At the moment
 artificial intelligence applications and resources over-index on novelty and

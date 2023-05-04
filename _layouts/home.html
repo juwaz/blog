@@ -28,7 +28,7 @@ layout: default
   {% assign sticky_posts = ''|split:'' %}
   {% assign non_sticky_posts = '' | split:'' %}
 
- 
+
   {% for gp in grouped_posts %}
     {%- if gp.name == "" -%}
       {% assign non_sticky_posts = gp.items | sort: "date" | reverse %}
@@ -42,15 +42,15 @@ layout: default
   #
   # robots.txt
   #
-  # This file is to prevent the crawling and indexing of your site by web crawlers and spiders run by sites 
-  # like Yahoo! and Google. 
+  # This file is to prevent the crawling and indexing of your site by web crawlers and spiders run by sites
+  # like Yahoo! and Google.
   # By telling these "robots" where not to go on your site, you save bandwith and server resources.
-  # 
-  # This file will be ignored unless it is at the root of your host: 
-  # Used: http://example.com/robots.txt 
+  #
+  # This file will be ignored unless it is at the root of your host:
+  # Used: http://example.com/robots.txt
   # Ignored: http://example.com/site/robots.txt
   #
-  # For more information about the robots.txt standard, see: 
+  # For more information about the robots.txt standard, see:
   # http://www.robotstxt.org/robotstxt.html
   # </pre>
   <div id="healthy2" class="row">
@@ -59,9 +59,9 @@ layout: default
       <p class="col-xs-4 unpad robota">Sitemap:</p>
       <!-- adding extra attributes as I'm purposdely not used the correct
         extension -->
-      <a class="robota unpad" href="{{ "images/cv_23.pdf" | relative_url}}"
-        target="_blank" type="application/pdf" media="print">/cv_23.xml</a>
-  </div> 
+      <a class="robota unpad" href="{{ "images/cv5.pdf" | relative_url}}"
+        target="_blank" type="application/pdf" media="print">/cv5.xml</a>
+  </div>
    <!-- Assemble final sorted posts array -->
   {% assign sticky_posts = sticky_posts | sort: "sticky_rank", "last" %}
   {% assign posts = sticky_posts | concat: non_sticky_posts %}
